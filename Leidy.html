@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="libs/jQuery/jQueryv3.5.0.js"></script>
+
+    <link rel="stylesheet" href="libs/bootstrap-4.0.0/css/bootstrap.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col xs 4">
+                <div style="margin-top: 50px" class="row justify-content-center">
+                    <p>
+                        <h3 id="nombre"></h3>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col xs 4">
+                <div style="margin-top: 40px" class="row justify-content-center">
+                    <p>
+                        <h3 id="frase"></h3>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col xs 4">
+                <div style="margin-top: 10px" class="row justify-content-center">
+                    <p>
+                        <h3 id="frase2"></h3>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col xs-4">
+                <div style="margin-top: 50px;" class="row justify-content-center"><button id="btn1" class="btn btn-info">Presiona este Boton  :) </button></div>
+            </div>
+        </div>
+
+        <script>
+            var banderaNombre = 0;
+            var banderaFrase = 0;
+
+            function PintarLetra(nombre) {
+
+                if (banderaNombre < 5) {
+                    $("#nombre").append(nombre[banderaNombre]);
+                }
+                if (banderaNombre >= 5 && banderaNombre <= 11) {
+
+                    $("#frase").append(nombre[banderaNombre]);
+                }
+                if (banderaNombre >= 12) {
+                    $("#frase2").append(nombre[banderaNombre]);
+                }
+                banderaNombre = banderaNombre + 1;
+
+                while (banderaNombre < 20) {
+                    if (banderaNombre != 20) {
+                        setTimeout(pintarPalabra, 1000);
+                        break;
+                    }
+
+
+                }
+                debugger;
+                if (banderaNombre == 20) {
+                    banderaNombre = 0;
+                    $("#nombre").html("");
+                    $("#frase").html("");
+                    $("#frase2").html("");
+                    PintarLetra(nombre);
+                }
+            }
+
+            function pintarPalabra() {
+
+                var nombre = ["L", "E", "I", "D", "Y", "H", "E", "R", "M", "O", "S", "A", "B", "U", "E", "N", " ", "D", "I", "A"];
+
+
+                PintarLetra(nombre)
+            }
+            $("#btn1").click(function() {
+
+                pintarPalabra();
+
+            });
+        </script>
+</body>
+
+</html>
